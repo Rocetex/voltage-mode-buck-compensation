@@ -14,8 +14,8 @@ Based on the designed and assembled hardware, the impact and effectiveness of th
 * Practical laboratory measurements of closed-loop characteristics on the constructed test stand.
 
 <p align="center">
-  <img src="docs/images/pcb_top.jpg" width="48%" alt="PCB Top View" />
-  <img src="docs/images/pcb_bottom.jpg" width="48%" alt="PCB Bottom View" />
+  <img src="docs/images/pcb_top.png" width="48%" alt="PCB Top View" />
+  <img src="docs/images/pcb_bottom.png" width="48%" alt="PCB Bottom View" />
 </p>
 
 ---
