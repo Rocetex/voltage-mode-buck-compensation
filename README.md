@@ -13,6 +13,11 @@ Based on the designed and assembled hardware, the impact and effectiveness of th
 * Custom engineering design of the printed circuit board (PCB).
 * Practical laboratory measurements of closed-loop characteristics on the constructed test stand.
 
+<p align="center">
+  <img src="docs/images/pcb_top.jpg" width="48%" alt="PCB Top View" />
+  <img src="docs/images/pcb_bottom.jpg" width="48%" alt="PCB Bottom View" />
+</p>
+
 ---
 
 ## Converter Design Specification
@@ -27,6 +32,8 @@ Based on the designed and assembled hardware, the impact and effectiveness of th
 | **Inductor ($L$)** | 8.2 µH | - |
 | **Output Capacitance ($C_{OUT}$)** | 114.335 µF | Compensated total value including a 68 µF electrolytic capacitor and a 46.335 µF bank of MLCC ceramic capacitors subjected to the DC Bias effect. |
 
+**Fig. 1. Schematic of the main power stage and control loop.**
+![Buck Converter Schematic](docs/images/schematic.png)
 ---
 
 ## Analysis of Compensation Networks
@@ -41,12 +48,38 @@ For each circuit, frequency responses were determined via simulation, and the im
 
 ---
 
+### Frequency Response (Simulated Bode Plots)
+
+| Type I (Simulation) | Type II (Simulation) | Type III (Simulation) |
+| :---: | :---: | :---: |
+| ![Bode Type I](docs/images/simulated_bode_type1.png) | ![Bode Type II](docs/images/simulated_bode_type2.png) | ![Bode Type III](docs/images/simulated_bode_type3.png) |
+
+---
+
 ## Key Engineering Solutions
 
 During the hardware design process, the real physical phenomena of electronic components were taken into account:
 * **Accounting for the DC Bias effect in ceramic capacitors:** The parameters of the output MLCC bank were selected with particular emphasis on their capacitance degradation under a constant 20 V bias voltage. The actual drop from 22 µF to 15.45 µF per MLCC capacitor was calculated, which was directly included in the total output capacitance balance.
 * **Minimization of dead-time losses:** An external Schottky diode (Vishay VSSAF5N50) was connected in parallel with the low-side MOSFET (AON6234), which reduces the losses on the transistor's body diode and limits current spikes.
 * **Signal injection for AC measurements:** A 20-ohm injection resistor was placed in the circuit, allowing a small-signal injection via an isolation transformer to plot Bode diagrams.
+
+---
+
+## Converter Performance & Measurements
+
+### 1. Steady-State & Start-up Characteristics
+To verify the fundamental performance of the power supply, efficiency, output voltage ripple, and the soft-start sequence were measured.
+
+| Efficiency Curve | Soft-Start Sequence | Output Voltage Ripple |
+| :---: | :---: | :---: |
+| ![Efficiency](measurements/efficiency_curve.png) | ![Soft Start](measurements/soft_start.png) | ![Ripple](measurements/output_ripple.png) |
+
+### 2. Load Step Transient Response (0A to 5A)
+The practical measurements below confirm the comparative analysis of the compensation networks. The Type III compensator provides the fastest settling time and the smallest voltage deviation during dynamic load changes.
+
+| Type I | Type II | Type III (Optimal) |
+| :---: | :---: | :---: |
+| ![Transient Type I](measurements/transient_0-5A_type1.png) | ![Transient Type II](measurements/transient_0-5A_type2.png) | ![Transient Type III](measurements/transient_0-5A_type3.png) |
 
 ---
 
