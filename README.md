@@ -92,11 +92,15 @@ The project and laboratory measurements conducted on the test stand proved that 
 * Achieving the shortest settling time after a load step transient.
 * Significant minimization of output voltage sag and reduction of overshoot, which directly translates into higher power supply quality.
 
+---
+
 ## Repository Structure
 
 * **`docs/`** – Full project documentation (Master's thesis PDF).
 * **`hardware/`** – Source files of the project from Altium Designer (`.SchDoc`, `.PcbDoc`, and Gerber files).
 * **`measurements/`** – Test results of the real circuit (captured oscillograms, load step responses for each compensation type).
+
+---
 
 ## Author
 * **Mikołaj Siewierski, MSc**
